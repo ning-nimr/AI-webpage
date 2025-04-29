@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Künstliche Intelligenz (KI) - Ein Überblick</title>
+    <style>
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #6a98d0;
+            --accent-color: #ff6b6b;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --text-color: #333;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f5f7fa;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://cdn.ceps.eu/wp-content/uploads/2024/07/vecteezy_ai-generated-ai-circuit-board-technology-background_37348385-scaled.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+            z-index: 1;
+        }
+
+        nav {
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+            background-color: rgba(74, 111, 165, 0.1);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+            padding: 2rem;
+            transition: var(--transition);
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--accent-color);
+            border-radius: 3px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        ul {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background-color: var(--light-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .image-container {
+            margin: 2rem 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .image-container:hover img {
+            transform: scale(1.03);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background-color: var(--accent-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: #ff8585;
+        }
+
+        .chart-container {
+            height: 300px;
+            margin: 2rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        tr:hover {
+            background-color: rgba(74, 111, 165, 0.1);
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            flex: 1 1 300px;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .accordion {
+            margin: 2rem 0;
+        }
+
+        .accordion-item {
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            background-color: var(--light-color);
+            padding: 1rem;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .accordion-header:hover {
+            background-color: rgba(74, 111, 165, 0.1);
+        }
+
+        .accordion-content {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background-color: white;
+        }
+
+        .accordion-content-inner {
+            padding: 1rem;
+        }
+
+        .active .accordion-content {
+            max-height: 500px;
+        }
+
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-column {
+            flex: 1 1 300px;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-column a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 1rem;
+                border-bottom: 1px solid #eee;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animation for progress bars */
+        @keyframes progressAnimation {
+            0% { width: 0; }
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 20px;
+            background-color: #e9ecef;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            border-radius: 10px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            animation: progressAnimation 1s ease-out forwards;
+            transition: width 1s ease-out;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Tooltip styles */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Tabs */
+        .tabs {
+            margin: 2rem 0;
+        }
+
+        .tab-links {
+            display: flex;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .tab-link {
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-weight: 600;
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+
+        .tab-link:hover {
+            color: var(--primary-color);
+        }
+
+        .tab-link.active {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .tab-content {
+            display: none;
+            padding: 1rem 0;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Scroll to top button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 99;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-bg"></div>
+        <div class="header-content">
+            <h1>Künstliche Intelligenz (KI)</h1>
+            <p>Ein umfassender Überblick über die Technologie der Zukunft</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">KI-Welt</div>
+            <button class="hamburger" id="hamburger">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#definition">Definition</a></li>
+                <li><a href="#arten">Arten von KI</a></li>
+                <li><a href="#technologien">Technologien</a></li>
+                <li><a href="#anwendungen">Anwendungen</a></li>
+                <li><a href="#zukunft">Zukunft</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section id="definition">
+            <h2>Was ist Künstliche Intelligenz?</h2>
+            <div class="image-container">
+                <img src="https://eq47oznpfsr.exactdn.com/wp-content/uploads/2024/08/What-Is-AI-Featured.jpg?lossy=1&quality=70&ssl=1" alt="Künstliche Intelligenz Konzept">
+            </div>
+            <p>KI steht für Künstliche Intelligenz. Es handelt sich dabei um die Fähigkeit von Computern oder Maschinen, Aufgaben auszuführen, die typischerweise menschliche Intelligenz erfordern.</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Lernen</h3>
+                    <p>Die Fähigkeit, aus Daten zu lernen und sich anzupassen.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔎</div>
+                    <h3>Problemlösung</h3>
+                    <p>Die Fähigkeit, Probleme zu analysieren und Lösungen zu finden.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🗣️</div>
+                    <h3>Spracherkennung</h3>
+                    <p>Die Fähigkeit, menschliche Sprache zu verstehen und zu verarbeiten.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👁️</div>
+                    <h3>Bilderkennung</h3>
+                    <p>Die Fähigkeit, Objekte und Muster in Bildern zu erkennen.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚖️</div>
+                    <h3>Entscheidungsfindung</h3>
+                    <p>Die Fähigkeit, auf Basis von Daten und Regeln Entscheidungen zu treffen.</p>
+                </div>
+            </div>
+            
+            <p>Laut dem Europäischen Parlament ist KI die Fähigkeit einer Maschine, menschliche Fähigkeiten wie logisches Denken, Lernen, Planen und Kreativität nachzuahmen. Es ist ein Teilgebiet der Informatik, das sich mit der Automatisierung intelligenten Verhaltens und maschinellem Lernen befasst.</p>
+            
+            <button class="btn" id="learnMoreBtn">Mehr erfahren</button>
+        </section>
+
+        <section id="arten">
+            <h2>Arten von KI</h2>
+            <div class="image-container">
+                <img src="https://scitechdaily.com/images/Artificial-Intelligence-Robot-Thinking-Brain.jpg" alt="KI-Typen und Konzepte">
+            </div>
+            
+            <div class="tabs">
+                <div class="tab-links">
+                    <button class="tab-link active" data-tab="schwach">Schwache KI</button>
+                    <button class="tab-link" data-tab="stark">Starke KI</button>
+                    <button class="tab-link" data-tab="super">Superintelligenz</button>
+                    <button class="tab-link" data-tab="andere">Andere Klassifikationen</button>
+                </div>
+                
+                <div id="schwach" class="tab-content active">
+                    <h3>Schwache KI (Narrow AI)</h3>
+                    <p>Schwache KI ist auf eine bestimmte Aufgabe beschränkt, wie z.B. Sprachassistenten oder Bilderkennung. Die meisten KI-Systeme, die heute im Einsatz sind, fallen in diese Kategorie.</p>
+                    <div class="card-container">
+                        <div class="card">
+                            <div class="card-content">
+                                <h4>Beispiele</h4>
+                                <ul>
+                                    <li>Siri und Alexa</li>
+                                    <li>Empfehlungssysteme (Netflix, Amazon)</li>
+                                    <li>Gesichtserkennungssoftware</li>
+                                    <li>Chatbots</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-content">
+                                <h4>Eigenschaften</h4>
+                                <ul>
+                                    <li>Spezialisiert auf einen Bereich</li>
+                                    <li>Kann nur die Aufgaben erfüllen, für die sie programmiert wurde</li>
+                                    <li>Lernt innerhalb definierter Parameter</li>
+                                    <li>Weit verbreitet in der heutigen Technologie</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="stark" class="tab-content">
+                    <h3>Starke KI (General AI)</h3>
+                    <p>Starke KI ist theoretisch in der Lage, jede intellektuelle Aufgabe zu erfüllen, die ein Mensch kann. Sie ist nicht auf einen bestimmten Aufgabenbereich beschränkt, sondern universell einsetzbar. Aktuell gibt es noch kein KI-System, das in diese Kategorie fällt.</p>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 15%">Entwicklungsstand: 15%</div>
+                    </div>
+                    <p>Die Entwicklung einer starken KI stellt eine der größten Herausforderungen der Informatik dar und wirft zahlreiche ethische und philosophische Fragen auf.</p>
+                </div>
+                
+                <div id="super" class="tab-content">
+                    <h3>Superintelligenz</h3>
+                    <p>Superintelligenz bezeichnet eine hypothetische KI, die die menschliche Intelligenz in praktisch allen Bereichen übertrifft. Dieses Konzept ist derzeit rein theoretisch und Gegenstand vieler wissenschaftlicher und philosophischer Diskussionen.</p>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 5%">Entwicklungsstand: 5%</div>
+                    </div>
+                    <blockquote>
+                        "Eine Superintelligenz ist jeder Intellekt, der die kognitive Leistungsfähigkeit des Menschen in praktisch allen Bereichen weit übertrifft." - Nick Bostrom
+                    </blockquote>
+                </div>
+                
+                <div id="andere" class="tab-content">
+                    <h3>Andere Klassifikationen</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Typ</th>
+                                <th>Beschreibung</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Reaktive Maschinen</td>
+                                <td>Reagieren auf aktuelle Situationen ohne Erinnerung an die Vergangenheit</td>
+                                <td>Existiert</td>
+                            </tr>
+                            <tr>
+                                <td>KI mit begrenzter Speicherkapazität</td>
+                                <td>Kann auf vergangene Daten zugreifen, um Entscheidungen zu treffen</td>
+                                <td>Existiert</td>
+                            </tr>
+                            <tr>
+                                <td>Theorie des Geistes</td>
+                                <td>Soll Emotionen und Absichten verstehen können</td>
+                                <td>In Entwicklung</td>
+                            </tr>
+                            <tr>
+                                <td>Selbsterkenntnis</td>
+                                <td>Maschinen mit Bewusstsein ihrer selbst</td>
+                                <td>Theoretisch</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="technologien">
+            <h2>Technologien hinter KI</h2>
+            
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Neuronale Netze</span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Neuronale Netze sind von der Struktur des menschlichen Gehirns inspirierte Computermodelle. Sie bestehen aus miteinander verbundenen "Neuronen", die in Schichten angeordnet sind.</p>
+                            <p>Diese Netze können komplexe Muster in Daten erkennen und sind besonders effektiv bei Aufgaben wie Bild- und Spracherkennung.</p>
+                            <div class="chart-container" id="neuralNetworkChart">
+                                <!-- Chart will be rendered here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Maschinelles Lernen (ML)</span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Maschinelles Lernen ist eine Teilmenge der KI, bei der Algorithmen aus Daten lernen, ohne explizit programmiert zu werden.</p>
+                            <p>Es gibt verschiedene Arten von maschinellem Lernen:</p>
+                            <ul>
+                                <li><strong>Überwachtes Lernen:</strong> Der Algorithmus wird mit gekennzeichneten Daten trainiert</li>
+                                <li><strong>Unüberwachtes Lernen:</strong> Der Algorithmus findet Muster in nicht gekennzeichneten Daten</li>
+                                <li><strong>Bestärkendes Lernen:</strong> Der Algorithmus lernt durch Versuch und Irrtum</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Deep Learning</span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Deep Learning ist eine Unterkategorie des maschinellen Lernens, die tiefe neuronale Netze mit vielen Schichten verwendet.</p>
+                            <p>Diese Technologie hat in den letzten Jahren zu bahnbrechenden Fortschritten in Bereichen wie Bilderkennung, Sprachverarbeitung und autonomes Fahren geführt.</p>
+                            <div class="progress-container">
+                                <div class="progress-bar" style="width: 85%">Fortschritt in den letzten 10 Jahren: 85%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Natural Language Processing (NLP)</span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>NLP ist ein Teilbereich der KI, der sich mit der Interaktion zwischen Computern und menschlicher Sprache befasst.</p>
+                            <p>Diese Technologie ermöglicht es Maschinen, Text zu verstehen, zu interpretieren und zu generieren, was für Anwendungen wie Chatbots, Übersetzungsdienste und Sprachassistenten unerlässlich ist.</p>
+                            <button class="btn">NLP-Beispiel testen</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Computer Vision</span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Computer Vision ermöglicht es Maschinen, Bilder und Videos zu interpretieren und zu verstehen, ähnlich wie das menschliche Sehvermögen.</p>
+                            <p>Diese Technologie wird in Bereichen wie Gesichtserkennung, autonomem Fahren, medizinischer Bildgebung und Qualitätskontrolle in der Fertigung eingesetzt.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="anwendungen">
+            <h2>Anwendungen von KI</h2>
+            <div class="image-container">
+                <img src="https://eq47oznpfsr.exactdn.com/wp-content/uploads/2024/08/AI-Benefits-Blog-Featured.jpg?lossy=1&quality=70&ssl=1" alt="KI-Anwendungen">
+            </div>
+            
+            <h3>Alltägliche Anwendungen</h3>
+            <div class="card-container">
+                <div class="card">
+                    <img src="https://imageio.forbes.com/specials-images/imageserve/6736f3d0b4198928f9696fc0/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds" alt="KI im Alltag" class="card-img">
+                    <div class="card-content">
+                        <h4>Sprachassistenten</h4>
+                        <p>Wie Siri, Alexa und Google Assistant, die natürliche Sprache verstehen und auf Befehle reagieren können.</p>
+                    </div>
+                </div>
+                
